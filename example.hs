@@ -1,3 +1,5 @@
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 -- 整数 <=> Integer
 -- 有理数 <=> Rational
 -- 2 つの元の集合 {0, 1} <=> Bool
@@ -52,3 +54,52 @@ resultSum = concat 0 [1..100]
 
 resultAll :: Bool
 resultAll = concat True [True, True, True]
+
+-- 半群の言い回しとして、Integer と + のインスタンスをとって『半群 (Integer, +)』と言ったりする
+-- 半群のベースとなる集合 Integer を、『半群 (Integer, +) の台集合』という
+
+-- 台集合に対して半群は必ずしも 1 つではない
+-- 集合 Integer は半群 (Integer, *) にもなる
+-- 集合 Bool は半群 (Bool, ||) にもなる
+-- newtype を使ってそれを表現してみる
+
+newtype Sum = Sum { unSum :: Integer } deriving (Show, Eq, Num, Enum)
+
+newtype Product = Product { unProduct :: Integer } deriving (Show, Eq, Num, Enum)
+
+newtype RSum = RSum { unRSum :: Rational } deriving (Show, Eq, Num, Enum)
+
+newtype RProduct = RProduct { unRProduct :: Rational } deriving (Show, Eq, Num, Enum)
+
+newtype And = And { unAnd :: Bool } deriving (Show, Eq)
+
+newtype Or = Or { unOr :: Bool } deriving (Show, Eq)
+
+xor :: Bool -> Bool -> Bool
+xor True True = False
+xor True False = True
+xor False True = True
+xor False False = False
+
+newtype Xor = Xor { unXor :: Bool } deriving (Show, Eq)
+
+instance Semigroup Sum where
+  (<>) = (+)
+
+instance Semigroup Product where
+  (<>) = (*)
+
+instance Semigroup And where
+  And x <> And y = And $ x && y
+
+instance Semigroup Or where
+  Or x <> Or y = Or $ x || y
+
+instance Semigroup Xor where
+  Xor x <> Xor y = Xor $ x `xor` y
+
+aSumInt :: Sum
+aSumInt = Sum 10 <> Sum 20
+
+aProductInt :: Product
+aProductInt = Product 10 <> Product 20
