@@ -1,0 +1,26 @@
+-- This file has been generated from package.yaml by hpack version 0.28.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 0d60e6f3e22b79c40a3895917f8907e8f529b81dd45265efb58e0a761c22d9db
+
+name:           nico-haskell
+version:        0.1.0.0
+category:       Simple
+homepage:       https://github.com/0918nobita/nico-haskell
+author:         0918nobita
+maintainer:     nobita.0918@gmail.com
+copyright:      2018 0918nobita
+license:        CC-0
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+executable dummy
+  main-is: Dummy.hs
+  other-modules:
+      Paths_nico_haskell
+  build-depends:
+      base >=4.7 && <5
+    , smallcheck
+  default-language: Haskell2010
