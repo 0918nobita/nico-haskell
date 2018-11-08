@@ -1,0 +1,16 @@
+name: nico-haskell
+version: '0.1.0.0'
+category: Simple
+author: 0918nobita
+maintainer: nobita.0918@gmail.com
+copyright: 2018 0918nobita
+license: CC-0
+homepage: https://github.com/0918nobita/nico-haskell
+
+dependencies:
+  - base >=4.7 && <5
+  - smallcheck
+
+executables:
+  dummy:
+    main: Dummy.hs
