@@ -4,7 +4,7 @@ category: Simple
 author: 0918nobita
 maintainer: nobita.0918@gmail.com
 copyright: 2018 0918nobita
-license: CC-0
+license: Apache-2.0
 homepage: https://github.com/0918nobita/nico-haskell
 
 dependencies:
