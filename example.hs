@@ -130,3 +130,9 @@ instance Abelian And
 instance Abelian Or
 instance Abelian Xor
 instance Abelian ()
+
+class Semigroup a => Monoid a where
+  empty :: a
+
+emptyLaw :: (Monoid a, Eq a) => a -> Bool
+emptyLaw x = (empty <> x == x) && (x == x <> empty)
