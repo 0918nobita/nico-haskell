@@ -103,3 +103,15 @@ aSumInt = Sum 10 <> Sum 20
 
 aProductInt :: Product
 aProductInt = Product 10 <> Product 20
+
+instance Semigroup RSum where
+  (<>) = (+)
+
+instance Semigroup RProduct where
+  (<>) = (*)
+
+instance Semigroup [a] where
+  (<>) = (++)
+
+instance Semigroup () where
+  () <> () = ()
