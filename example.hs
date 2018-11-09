@@ -6,7 +6,7 @@
 -- 意味を一致させておくことが大事
 
 -- instance Show Integer where
-   -- ここで Show の実装 
+  -- ここで Show の実装 
 
 -- 【カリー＝ハワード同型】
 
@@ -134,5 +134,6 @@ instance Abelian ()
 class Semigroup a => Monoid a where
   empty :: a
 
+-- 単位元の法則
 emptyLaw :: (Monoid a, Eq a) => a -> Bool
 emptyLaw x = (empty <> x == x) && (x == x <> empty)
