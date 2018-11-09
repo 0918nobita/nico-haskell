@@ -115,3 +115,5 @@ instance Semigroup [a] where
 
 instance Semigroup () where
   () <> () = ()
+
+class Semigroup a => Abelian a
