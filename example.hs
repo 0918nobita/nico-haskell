@@ -121,3 +121,12 @@ class Semigroup a => Abelian a
 -- あるインスタンスが交換法則を満たすことのテスト
 commutativeLaw :: (Abelian a, Eq a) => a -> a -> Bool
 commutativeLaw x y = x <> y == y <> x
+
+instance Abelian Sum
+instance Abelian Product
+instance Abelian RSum
+instance Abelian RProduct
+instance Abelian And
+instance Abelian Or
+instance Abelian Xor
+instance Abelian ()
