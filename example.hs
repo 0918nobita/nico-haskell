@@ -117,3 +117,7 @@ instance Semigroup () where
   () <> () = ()
 
 class Semigroup a => Abelian a
+
+-- あるインスタンスが交換法則を満たすことのテスト
+commutativeLaw :: (Abelian a, Eq a) => a -> a -> Bool
+commutativeLaw x y = x <> y == y <> x
